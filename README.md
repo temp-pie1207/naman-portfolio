@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Local_%26_Production-000000?style=for-the-badge&logo=vercel&logoColor=white)](http://localhost:8081)
+  [![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-Local_%26_Production-000000?style=for-the-badge&logo=vercel&logoColor=white)](http://localhost:8080)
   [![Three.js](https://img.shields.io/badge/Three.js-r180_%2B_WebGL-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
   [![Bootstrap](https://img.shields.io/badge/Bootstrap-v5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
   [![FastAPI & Python](https://img.shields.io/badge/AI_Backend-FastAPI_%26_Python-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
@@ -19,7 +19,7 @@
   </p>
 
   <p align="center">
-    <a href="http://localhost:8081"><strong>Explore Live Server (Port 8081) ↗</strong></a> •
+    <a href="http://localhost:8080"><strong>Explore Live Website (Port 8080) ↗</strong></a> •
     <a href="https://github.com/temp-pie1207">GitHub Profile</a> •
     <a href="https://leetcode.com/u/Naman_1207">LeetCode</a> •
     <a href="https://www.instagram.com/namanwuv_/">Instagram</a>
@@ -92,11 +92,11 @@ git clone https://github.com/temp-pie1207/Portfolio_Naman.git
 cd Portfolio_Naman
 
 # Launch the local HTTP server
-python3 -m http.server 8081
+python3 -m http.server 8080
 ```
 
 Access the application in your browser at:
-👉 **`http://localhost:8081`**
+👉 **`http://localhost:8080`**
 
 ---
 

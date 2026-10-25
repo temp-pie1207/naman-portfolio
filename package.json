@@ -5,10 +5,11 @@
   "description": "Naman Kashyap — Artificial Intelligence & Full Stack Engineer Portfolio featuring ThreeUI 3D Shaders",
   "type": "module",
   "scripts": {
-    "dev": "python3 -m http.server 8081",
-    "start": "python3 -m http.server 8081"
+    "dev": "python3 -m http.server 8080",
+    "start": "python3 -m http.server 8080"
   },
   "dependencies": {
     "three": "^0.180.0"
   }
 }
+
