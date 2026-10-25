@@ -355,25 +355,31 @@
         <!-- About Me -->
         <section class="section-about-me-v2 flat-spacing" id="aboutScroll">
             <div class="container">
-                <div class="about-main flat-spacing-bottom">
-                    <div class="naman-video">
-                        <video class="video" muted="" autoplay="" loop="" playsinline="">
-                            <source src="assets/images/video/naman-video.mp4" type="video/mp4">
-                        </video>
-                        <div class="overlay mark"></div>
-                        <div class="overlay bg-effect">
-                            <img loading="lazy" width="1296" height="729" src="assets/images/item/dither-effect.svg" alt="Image">
+                <div class="about-main flat-spacing-bottom" style="position: relative; border-radius: 24px; overflow: hidden; background: radial-gradient(circle at 80% 20%, rgba(7,196,44,0.08) 0%, rgba(6,10,8,0.95) 70%); border: 1px solid rgba(7,196,44,0.22); box-shadow: 0 25px 60px rgba(0,0,0,0.7); min-height: 480px; padding: 48px 40px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <!-- Smooth cinematic ambient motion background (NO dither noise!) -->
+                    <video muted="" autoplay="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.28; filter: brightness(0.7) contrast(1.1); pointer-events: none; z-index: 0;">
+                        <source src="assets/images/video/wave-bg.mp4" type="video/mp4">
+                    </video>
+                    <!-- Dark sleek cinematic radial vignette overlay -->
+                    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 15% 85%, rgba(7,196,44,0.15) 0%, transparent 60%), linear-gradient(180deg, rgba(6,10,8,0.3) 0%, rgba(6,10,8,0.85) 100%); pointer-events: none; z-index: 1;"></div>
+                    
+                    <div class="content" style="position: relative; z-index: 2; width: 100%;">
+                        <div class="top text-display-1 fw-semibold letter-space--3 mb-4">
+                            <p class="effectFade fadeUp text-white">About</p>
+                            <p class="effectFade fadeUp text-white" data-delay="0.1">Naman<span class="text-primary">_</span></p>
                         </div>
-                    </div>
-                    <div class="content">
-                        <div class="top text-display-1 fw-semibold letter-space--3">
-                            <p class="effectFade fadeUp">About</p>
-                            <p class="effectFade fadeUp" data-delay="0.1">Naman<span class="text-primary">_</span></p>
+                        <div class="my-3" style="max-width: 860px;">
+                            <p class="text-caption text-primary mb-2 letter-space-1">// CORE PHILOSOPHY & ENGINEERING MASTERY</p>
+                            <h3 class="text-white letter-space--1 fw-normal" style="font-size: clamp(22px, 2.5vw, 36px); line-height: 1.45; font-weight: 400; text-shadow: 0 2px 20px rgba(0,0,0,0.8);">
+                                I am an <span class="text-primary fw-semibold">Artificial Intelligence & Full-Stack Systems Engineer</span> architecting scalable web platforms, conversational RAG pipelines, and real-time computer vision models. Dedicated to turning complex algorithmic intelligence into elegant, high-impact production software.
+                            </h3>
                         </div>
-                        <h5 class="text-color-change letter-space--2 fw-normal">
-                            I’m a designer and no-code developer creating bold, functional, and award-winning digital experiences that help brands
-                            connect with their audience.
-                        </h5>
+                        <div class="d-flex flex-wrap gap-2 pt-3">
+                            <span style="background: rgba(7,196,44,0.12); color: #07C42C; border: 1px solid rgba(7,196,44,0.3); padding: 7px 16px; font-size: 12px; font-weight: 600; border-radius: 999px; letter-spacing: 0.5px;">✦ Full-Stack Web Architecture</span>
+                            <span style="background: rgba(255,255,255,0.05); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.12); padding: 7px 16px; font-size: 12px; font-weight: 500; border-radius: 999px; letter-spacing: 0.5px;">✦ Conversational RAG & Multi-LLM</span>
+                            <span style="background: rgba(255,255,255,0.05); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.12); padding: 7px 16px; font-size: 12px; font-weight: 500; border-radius: 999px; letter-spacing: 0.5px;">✦ Real-Time Computer Vision & Edge Biometrics</span>
+                            <span style="background: rgba(255,255,255,0.05); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.12); padding: 7px 16px; font-size: 12px; font-weight: 500; border-radius: 999px; letter-spacing: 0.5px;">✦ Distributed Microservices & Cloud APIs</span>
+                        </div>
                     </div>
                 </div>
                 <div class="br-line d-flex flat-spacing-bottom"></div>
@@ -384,26 +390,30 @@
                         </div>
                     </div>
                     <ul class="experience-list overflow-hidden">
-                        <li>Work Experience</li>
+                        <li>Experience & Education</li>
                         <li class="effectFade fadeRight">
-                            <p class="exp_name">Independent Product Designer</p>
+                            <p class="exp_name">Video Maker & Editor Intern · Seekho App (Coermacasia)</p>
+                            <p class="exp_year">Mar 2026 – Apr 2026</p>
+                        </li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">Content Creator & Video Editor · @naman.thisside</p>
+                            <p class="exp_year">Dec 2025 – Present</p>
+                        </li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">Full Stack & AI Systems Developer · Ongoing Projects</p>
+                            <p class="exp_year">Oct 2025 – Present</p>
+                        </li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">B.Tech in Artificial Intelligence & Machine Learning · Dronacharya</p>
+                            <p class="exp_year">2025 – 2028</p>
+                        </li>
+                        <li class="effectFade fadeRight">
+                            <p class="exp_name">Senior Secondary (Class XII Science 89.00%) · Sidheshwar Public</p>
                             <p class="exp_year">2025</p>
                         </li>
                         <li class="effectFade fadeRight">
-                            <p class="exp_name">Senior UX Designer at CloudForge</p>
-                            <p class="exp_year">2024 - 2025</p>
-                        </li>
-                        <li class="effectFade fadeRight">
-                            <p class="exp_name">Product Designer at Orbit Systems</p>
-                            <p class="exp_year">2022 - 2024</p>
-                        </li>
-                        <li class="effectFade fadeRight">
-                            <p class="exp_name">UI/UX Designer at PixelHaus</p>
-                            <p class="exp_year">2021 - 2022</p>
-                        </li>
-                        <li class="effectFade fadeRight">
-                            <p class="exp_name">Junior Designer at Brightline Studio</p>
-                            <p class="exp_year">2020 - 2021</p>
+                            <p class="exp_name">Secondary (Class X 89.00% · Head Boy) · Sidheshwar Public</p>
+                            <p class="exp_year">2023</p>
                         </li>
                     </ul>
                 </div>
@@ -1311,9 +1321,7 @@
                                 </div>
                                 <div id="faq-3" class="collapse" data-bs-parent="#accordion-faq_list">
                                     <p class="accordion-content text-black-64">
-                                        Absolutely. I handle branding, UI/UX design, and no-code or coded development to deliver a complete
-                                        end-to-end
-                                        solution.
+                                        Absolutely. I architect end-to-end full-stack systems, modern UI/UX interfaces, and robust backend/AI microservices to deliver complete production-ready solutions.
                                     </p>
                                 </div>
                             </div>
