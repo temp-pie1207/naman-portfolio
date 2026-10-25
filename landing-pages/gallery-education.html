@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education Gallery — Naman</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body, html { width: 100%; height: 100%; overflow: hidden; background: transparent; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  #gallery-host { position: absolute; inset: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  canvas { display: block; width: 100%; height: 100%; }
+  .edu-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    z-index: 10;
+  }
+  .edu-badge {
+    align-self: flex-start;
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #e5e5e5;
+    text-transform: uppercase;
+  }
+  .edu-cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-self: center;
+    max-width: 900px;
+    pointer-events: auto;
+  }
+  .edu-card {
+    flex: 1 1 260px;
+    background: rgba(18, 20, 24, 0.78);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .edu-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(7, 196, 44, 0.4);
+  }
+  .edu-card .period {
+    font-size: 11px;
+    font-family: monospace;
+    color: #07c42c;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .edu-card .degree {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .edu-card .institution {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-bottom: 8px;
+  }
+  .edu-card .score {
+    display: inline-block;
+    padding: 3px 8px;
+    background: rgba(7, 196, 44, 0.15);
+    border: 1px solid rgba(7, 196, 44, 0.3);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #07c42c;
+  }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="gallery-host">
+  <canvas id="gallery-canvas"></canvas>
+  <div class="edu-overlay">
+    <div class="edu-badge">// ACADEMIC FOUNDATION & DEGREES</div>
+    <div class="edu-cards">
+      <div class="edu-card">
+        <div class="period">2025 — 2028</div>
+        <div class="degree">B.Tech in Artificial Intelligence & Machine Learning</div>
+        <div class="institution">Dronacharya College of Engineering</div>
+        <div class="score">Active Degree</div>
+      </div>
+      <div class="edu-card">
+        <div class="period">2025 · CBSE Class XII</div>
+        <div class="degree">Senior Secondary (Science)</div>
+        <div class="institution">Sidheshwar Public School</div>
+        <div class="score">Score: 89.00%</div>
+      </div>
+      <div class="edu-card">
+        <div class="period">2023 · CBSE Class X</div>
+        <div class="degree">Secondary School Examination</div>
+        <div class="institution">Sidheshwar Public School</div>
+        <div class="score">Score: 89.00% · Head Boy</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+
+const host = document.getElementById('gallery-host');
+const canvas = document.getElementById('gallery-canvas');
+
+const GALLERY_IMAGE_URLS = [
+  '../src/shaders/gallery/assets/gallery-1.webp',
+  '../src/shaders/gallery/assets/gallery-2.webp',
+  '../src/shaders/gallery/assets/gallery-3.webp',
+  '../src/shaders/gallery/assets/gallery-4.webp',
+  '../src/shaders/gallery/assets/gallery-5.webp',
+];
+
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setClearColor(0x000000, 0);
+renderer.outputEncoding = THREE.sRGBEncoding;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+camera.position.z = 18;
+
+const gallery = new THREE.Group();
+scene.add(gallery);
+
+const geometry = new THREE.CylinderGeometry(5, 5, 1.8, 64, 1, true, 0, Math.PI * 0.4);
+const loader = new THREE.TextureLoader();
+
+const textures = GALLERY_IMAGE_URLS.map((url) => {
+  const texture = loader.load(url, () => {
+    renderer.render(scene, camera);
+  });
+  texture.encoding = THREE.sRGBEncoding;
+  return texture;
+});
+
+const materials = Array.from({ length: 16 }, (_, index) => new THREE.MeshBasicMaterial({
+  map: textures[index % textures.length],
+  opacity: 0.65,
+  side: THREE.DoubleSide,
+  toneMapped: false,
+  transparent: true,
+}));
+
+materials.forEach((material, index) => {
+  const panel = new THREE.Mesh(geometry, material);
+  panel.position.y = (index - 8) * 2.4;
+  panel.rotation.y = (index / 16) * Math.PI * 4;
+  gallery.add(panel);
+});
+
+let elapsed = 0;
+let previousTime = performance.now();
+
+function animate(time = performance.now()) {
+  const dt = Math.min((time - previousTime) / 1000, 0.05);
+  previousTime = time;
+  elapsed += dt;
+
+  gallery.rotation.y = elapsed * 0.16;
+  gallery.position.y = Math.sin(elapsed * 0.8) * 1.2;
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
+
+function resize() {
+  const width = host.clientWidth || window.innerWidth;
+  const height = host.clientHeight || window.innerHeight;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(width, height, false);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+  renderer.render(scene, camera);
+}
+
+window.addEventListener('resize', resize);
+resize();
+animate();
+</script>
+</body>
+</html>

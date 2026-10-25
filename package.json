@@ -1,0 +1,14 @@
+{
+  "name": "naman-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Naman Kashyap — Artificial Intelligence & Full Stack Engineer Portfolio featuring ThreeUI 3D Shaders",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8081",
+    "start": "python3 -m http.server 8081"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  }
+}
