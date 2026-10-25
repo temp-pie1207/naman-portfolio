@@ -267,30 +267,48 @@
     }
 
     .book-card[data-book="codex"] {
-      --x: 23.2%;
-      --y: 40.5%;
-      --w: min(30.5vw, 435px);
-      --r: -8deg;
-      --yaw: -7deg;
+      --x: 12%;
+      --y: 45%;
+      --w: min(21vw, 310px);
+      --r: -12deg;
+      --yaw: -12deg;
       z-index: 1;
     }
 
     .book-card[data-book="claude"] {
-      --x: 50%;
-      --y: 32.2%;
-      --w: min(33vw, 470px);
-      --r: .8deg;
-      --yaw: -3deg;
+      --x: 31%;
+      --y: 36%;
+      --w: min(22vw, 335px);
+      --r: -6deg;
+      --yaw: -6deg;
       z-index: 3;
     }
 
     .book-card[data-book="cursor"] {
-      --x: 77%;
-      --y: 42%;
-      --w: min(30.5vw, 435px);
-      --r: 8deg;
-      --yaw: 7deg;
-      z-index: 2;
+      --x: 50%;
+      --y: 30%;
+      --w: min(24vw, 360px);
+      --r: 0deg;
+      --yaw: 0deg;
+      z-index: 5;
+    }
+
+    .book-card[data-book="mindmantra"] {
+      --x: 69%;
+      --y: 36%;
+      --w: min(22vw, 335px);
+      --r: 6deg;
+      --yaw: 6deg;
+      z-index: 3;
+    }
+
+    .book-card[data-book="vision"] {
+      --x: 88%;
+      --y: 45%;
+      --w: min(21vw, 310px);
+      --r: 12deg;
+      --yaw: 12deg;
+      z-index: 1;
     }
 
     .book-card:hover,
@@ -550,6 +568,14 @@
 
     .book-card[data-book="cursor"] .cover-copy {
       --cover-ink: #293024;
+    }
+
+    .book-card[data-book="mindmantra"] .cover-copy {
+      --cover-ink: #1b2e35;
+    }
+
+    .book-card[data-book="vision"] .cover-copy {
+      --cover-ink: #261930;
     }
 
     .open-badge {
@@ -1192,21 +1218,33 @@
       }
 
       .book-card[data-book="codex"] {
-        --x: 14%;
-        --y: 41%;
-        --w: min(49vw, 360px);
+        --x: 10%;
+        --y: 44%;
+        --w: min(34vw, 260px);
       }
 
       .book-card[data-book="claude"] {
-        --x: 50%;
-        --y: 35%;
-        --w: min(54vw, 395px);
+        --x: 30%;
+        --y: 38%;
+        --w: min(36vw, 280px);
       }
 
       .book-card[data-book="cursor"] {
-        --x: 87%;
-        --y: 42%;
-        --w: min(49vw, 360px);
+        --x: 50%;
+        --y: 34%;
+        --w: min(38vw, 300px);
+      }
+
+      .book-card[data-book="mindmantra"] {
+        --x: 70%;
+        --y: 38%;
+        --w: min(36vw, 280px);
+      }
+
+      .book-card[data-book="vision"] {
+        --x: 90%;
+        --y: 44%;
+        --w: min(34vw, 260px);
       }
 
       [data-mode="detail"] .stage {
@@ -1276,21 +1314,33 @@
       }
 
       .book-card[data-book="codex"] {
-        --x: 4%;
-        --y: 45%;
-        --w: 66vw;
+        --x: 6%;
+        --y: 47%;
+        --w: 52vw;
       }
 
       .book-card[data-book="claude"] {
-        --x: 50%;
-        --y: 40%;
-        --w: 72vw;
+        --x: 28%;
+        --y: 42%;
+        --w: 55vw;
       }
 
       .book-card[data-book="cursor"] {
-        --x: 96%;
-        --y: 46%;
-        --w: 66vw;
+        --x: 50%;
+        --y: 38%;
+        --w: 58vw;
+      }
+
+      .book-card[data-book="mindmantra"] {
+        --x: 72%;
+        --y: 42%;
+        --w: 55vw;
+      }
+
+      .book-card[data-book="vision"] {
+        --x: 94%;
+        --y: 47%;
+        --w: 52vw;
       }
 
       [data-mode="detail"] .stage {
@@ -1464,6 +1514,68 @@
           <span class="open-badge">Read</span>
         </span>
       </button>
+
+      <button
+        class="book-card"
+        type="button"
+        data-book="mindmantra"
+        aria-label="Open MindMantra details"
+        style="
+          --cover-color: #2a3c44;
+          --cover: url('https://ublctyddhtbgaersvxxb.supabase.co/storage/v1/object/public/threeui-media/scene-images/embedded/eafc13621b9605d30356b7d4396072b2593a46e0c47c96d17ba60ca03d98f925.jpg');
+        "
+      >
+        <span class="book" aria-hidden="true">
+          <span class="book-shadow"></span>
+          <span class="book-back"></span>
+          <span class="page-block"></span>
+          <span class="page-fan"><i></i><i></i><i></i><i></i></span>
+          <span class="front-cover">
+            <video class="cover-motion" autoplay muted loop playsinline preload="metadata">
+              <source src="https://ublctyddhtbgaersvxxb.supabase.co/storage/v1/object/public/threeui-media/scene-images/embedded/76a7b0b20e4992f91bb5febf2fa8edd2d33fd4b7bb0cda5f8ae0fffdff9d5a7e.mp4" type="video/mp4">
+            </video>
+            <span class="cover-copy">
+              <span class="cover-kicker">Digital Health · 2026</span>
+              <span class="cover-title">MindMantra<br>Health</span>
+              <span class="cover-subtitle">Encrypted Patient Telemetry</span>
+              <span></span>
+              <span class="cover-footer">React · Python · REST · HIPAA</span>
+            </span>
+          </span>
+          <span class="open-badge">Read</span>
+        </span>
+      </button>
+
+      <button
+        class="book-card"
+        type="button"
+        data-book="vision"
+        aria-label="Open Facial Biometrics details"
+        style="
+          --cover-color: #3b2c45;
+          --cover: url('https://ublctyddhtbgaersvxxb.supabase.co/storage/v1/object/public/threeui-media/scene-images/embedded/99df6a45ad1f9dd7e47b65c064df0ae58c7c22069fadd9aa896754c3bad27123.jpg');
+        "
+      >
+        <span class="book" aria-hidden="true">
+          <span class="book-shadow"></span>
+          <span class="book-back"></span>
+          <span class="page-block"></span>
+          <span class="page-fan"><i></i><i></i><i></i><i></i></span>
+          <span class="front-cover">
+            <video class="cover-motion" autoplay muted loop playsinline preload="metadata">
+              <source src="https://ublctyddhtbgaersvxxb.supabase.co/storage/v1/object/public/threeui-media/scene-images/embedded/6b3318cc6a7da610e3a55369131b20a2419cda826d558da09da284f09582956d.mp4" type="video/mp4">
+            </video>
+            <span class="cover-copy">
+              <span class="cover-kicker">Edge Biometrics · 2026</span>
+              <span class="cover-title">Facial<br>Biometrics</span>
+              <span class="cover-subtitle">OpenCV Stream Analytics</span>
+              <span></span>
+              <span class="cover-footer">Python · OpenCV · Real-Time</span>
+            </span>
+          </span>
+          <span class="open-badge">Read</span>
+        </span>
+      </button>
     </section>
 
     <section class="detail-panel" id="detailPanel" aria-live="polite" aria-hidden="true" inert>
@@ -1623,6 +1735,62 @@
             "Refactor this component for clarity without changing behavior. Preserve its public API and update the relevant tests.",
           review:
             "Inspect every suggested edit, run the affected tests, and reject any change that weakens the invariant."
+        },
+        mindmantra: {
+          title: "MindMantra: Health & Wellness Platform",
+          year: "2026",
+          description:
+            "MindMantra is a HIPAA-compliant digital mental health and wellness platform designed for real-time patient symptom logging, mood tracking, and clinician analytics dashboards. Engineered with encrypted Python REST backends, secure token authentication, and responsive modern frontends.",
+          steps: [
+            {
+              title: "Patient Symptom & Mood Telemetry",
+              body: "Ingest daily patient wellness metrics with encrypted client-side telemetry and mood pattern detection."
+            },
+            {
+              title: "HIPAA Security Architecture",
+              body: "Enforce zero-trust end-to-end encryption across patient medical records and RESTful API endpoints."
+            },
+            {
+              title: "Clinician Analytics Portal",
+              body: "Deliver interactive timeline charts and behavioral trend visualization for attending medical staff."
+            },
+            {
+              title: "Cross-Platform Access",
+              body: "Seamless responsive interface engineered with high-throughput backend services."
+            }
+          ],
+          prompt:
+            "Deploy HIPAA-compliant patient dashboard with real-time mood analytics and encrypted telemetry.",
+          review:
+            "Verify AES-256 encrypted storage, patient authentication tokens, and responsive UI metrics."
+        },
+        vision: {
+          title: "Facial Detection & Biometric Recognition",
+          year: "2026",
+          description:
+            "A high-speed edge computer vision pipeline engineered in Python and OpenCV. Processes multi-stream live camera feeds, extracting facial landmark meshes, spatial coordinates, and facial biometric feature embeddings at 60 FPS.",
+          steps: [
+            {
+              title: "Live Camera Stream Ingestion",
+              body: "Ingest multi-angle video feeds with sub-15ms frame capture and color normalization."
+            },
+            {
+              title: "Facial Landmark Mesh",
+              body: "Extract 68-point facial geometry and spatial anchor coordinates in real-time."
+            },
+            {
+              title: "Biometric Feature Vectorization",
+              body: "Compute high-dimensional face embeddings for instant verification against secure biometric registries."
+            },
+            {
+              title: "Edge Model Acceleration",
+              body: "Optimize model inference with quantization to maintain stable 60 FPS on edge hardware."
+            }
+          ],
+          prompt:
+            "python3 face_biometrics.py --stream /dev/video0 --confidence 0.98 --mesh --telemetry",
+          review:
+            "Validate landmark precision against edge camera feed at sustained 60 FPS without frame drops."
         }
       };
 
