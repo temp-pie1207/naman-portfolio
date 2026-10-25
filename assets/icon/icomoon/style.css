@@ -29,7 +29,12 @@
   content: "\e913";
 }
 .icon-davies-logo:before {
-  content: "\e912";
+  content: "N";
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  color: #07c42c;
+  font-size: 24px;
+  line-height: 1;
 }
 .icon-gear:before {
   content: "\e911";
