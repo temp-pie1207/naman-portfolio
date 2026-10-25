@@ -1,0 +1,6 @@
+davies-mainfiles/
+node_modules/
+.git/
+*.log
+threeui-sources/
+.github/
