@@ -41,36 +41,33 @@
     </button>
     <!-- /Scroll Top -->
 
-    <!-- Preload -->
-    <div class="preloader overflow-hidden">
-        <div class="site-name"><span>NAMAN</span></div>
-        <div class="preloader-gutters">
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-        </div>
+    <!-- ThreeUI Uplink Boot Preloader -->
+    <div id="uplink-boot-preloader" style="position:fixed;inset:0;z-index:9999999;background:#030806;transition:opacity 0.75s cubic-bezier(0.16,1,0.3,1),visibility 0.75s;overflow:hidden;">
+        <iframe id="uplink-frame" src="landing-pages/uplink-loader.html?mode=boot" style="width:100%;height:100%;border:0;display:block;" title="SYS.LINK Boot Sequence"></iframe>
+        <button id="skip-boot-btn" onclick="dismissBootPreloader()" style="position:absolute;top:20px;right:20px;background:rgba(7,37,26,0.7);border:1px solid rgba(47,224,125,0.4);color:#2fe07d;font-family:'Geist Mono',monospace,sans-serif;font-size:11px;letter-spacing:1.5px;padding:8px 16px;border-radius:4px;cursor:pointer;z-index:10;transition:all 0.2s;" onmouseover="this.style.background='rgba(47,224,125,0.25)'" onmouseout="this.style.background='rgba(7,37,26,0.7)'">
+            SKIP INTRO ✕
+        </button>
     </div>
+    <div class="preloader overflow-hidden" style="display:none;">
+        <div class="site-name"><span>NAMAN</span></div>
+    </div>
+    <script>
+    function dismissBootPreloader() {
+        const p = document.getElementById('uplink-boot-preloader');
+        if (p && !p.classList.contains('dismissed')) {
+            p.classList.add('dismissed');
+            p.style.opacity = '0';
+            p.style.pointerEvents = 'none';
+            setTimeout(function() { p.remove(); }, 800);
+        }
+    }
+    window.addEventListener('message', function(e) {
+        if (e.data && e.data.type === 'uplink-complete') {
+            setTimeout(dismissBootPreloader, 350);
+        }
+    });
+    setTimeout(dismissBootPreloader, 4800);
+    </script>
     <!-- /Preload -->
 
     <main id="wrapper">
@@ -90,6 +87,7 @@
                                 <li> <a href="#serviceScroll" class="link text-caption">SERVICES</a></li>
                                 <li> <a href="#aboutScroll" class="link text-caption">ABOUT</a></li>
                                 <li> <a href="#contactScroll" class="link text-caption">CONTACT</a></li>
+                                <li> <a href="index.html" class="link text-caption" style="color:#2fe07d !important;">VERSION 1 ↗</a></li>
                             </ul>
                         </div>
                         <div class="col-3 col-md-2 d-none d-sm-block ms-auto ms-xl-0">
@@ -135,6 +133,18 @@
                             alt="Image">
                     </div>
                 </div>
+                <!-- THREEUI COMPONENT: DarkSoulsHoloCard (variant: cindermane) - Naman Edition -->
+                <div class="row justify-content-center my-4">
+                    <div class="col-lg-10 col-xl-9">
+                        <div class="holo-card-preview-wrap beam-border" style="height: 740px;">
+                            <iframe src="landing-pages/dark-souls-holo-card-cindermane.html" style="width:100%;height:100%;border:0;display:block;" title="ThreeUI DarkSoulsHoloCard — Naman Edition"></iframe>
+                            <div style="position:absolute;bottom:14px;left:14px;background:rgba(5,4,4,0.88);backdrop-filter:blur(10px);border:1px solid rgba(255,216,160,0.3);padding:7px 16px;border-radius:999px;font-size:11px;font-family:monospace;letter-spacing:1.5px;color:#ffd8a0;pointer-events:none;box-shadow:0 4px 20px rgba(0,0,0,0.8);">
+                                ✦ THREE.JS HOLOGRAPHIC ARCHIVE CARD · DRAG TO ROTATE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bottom">
                     <ul class="tf-list text-caption letter-space--1 fw-medium scroll-fadeUp2">
                         <li><a href="#" class="link effectFade view-visible">FULL STACK DEVELOPER</a></li>
@@ -181,91 +191,156 @@
             </div>
             <div class="container">
                 <div class="work-list stack-element-main position-relative">
+                    <!-- Project 1 -->
                     <div class="element">
                         <a href="#" class="wg-work effectFade fadeUp no-div">
                             <div class="work-image">
-                                <video class="" muted="" autoplay="" loop="" playsinline="">
-                                    <source src="assets/images/video/nexbot.mp4" type="video/mp4">
-                                </video>
+                                <img loading="lazy" width="1296" height="648" src="assets/images/projects/4slayers.jpg" alt="4slayers AI Platform">
                             </div>
                             <div class="work-content">
                                 <div class="work_top">
-                                    <h5 class="letter-space--2">Nexbot_</h5>
+                                    <h5 class="letter-space--2">4slayers_</h5>
                                     <ul class="tf-list vertical text-end">
-                                        <li class="text-white-64">Industry</li>
-                                        <li class="effectFade fadeUp">Artificial Intelligence</li>
-                                        <li class="effectFade fadeUp">Web3</li>
+                                        <li class="text-white-64">Discipline</li>
+                                        <li class="effectFade fadeUp">AI Fraud Detection</li>
+                                        <li class="effectFade fadeUp">Scam DNA NLP</li>
                                     </ul>
                                 </div>
                                 <div class="work_bottom">
                                     <ul class="tf-list vertical">
-                                        <li class="text-white-64">Services</li>
-                                        <li class="effectFade fadeUp">Branding</li>
+                                        <li class="text-white-64">Technologies</li>
+                                        <li class="effectFade fadeUp">FastAPI · Python · MongoDB</li>
                                     </ul>
-                                    <h5 class="letter-space--2">
-                                        2025
-                                    </h5>
+                                    <h5 class="letter-space--2">2026</h5>
                                 </div>
                             </div>
                         </a>
                     </div>
+                    <!-- Project 2 -->
                     <div class="element">
                         <a href="#" class="wg-work">
                             <div class="work-image">
-                                <img loading="lazy" width="1296" height="648" src="assets/images/section/work-5.jpg" alt="Image">
+                                <img loading="lazy" width="1296" height="648" src="assets/images/projects/rag_llm.jpg" alt="RAG LLM Engine">
                             </div>
                             <div class="work-content">
                                 <div class="work_top">
-                                    <h5 class="letter-space--2">Landa_</h5>
+                                    <h5 class="letter-space--2">RAG-Chatbot_</h5>
                                     <ul class="tf-list vertical text-end">
-                                        <li class="text-white-64">Industry</li>
-                                        <li class="effectFade fadeUp">SAAS</li>
-                                        <li class="effectFade fadeUp">Productivity</li>
+                                        <li class="text-white-64">Discipline</li>
+                                        <li class="effectFade fadeUp">Generative AI</li>
+                                        <li class="effectFade fadeUp">Vector Search</li>
                                     </ul>
                                 </div>
                                 <div class="work_bottom">
                                     <ul class="tf-list vertical">
-                                        <li class="text-white-64">Services</li>
-                                        <li class="effectFade fadeUp">AI & Machine Learning</li>
-                                        <li class="effectFade fadeUp">Visual Identity</li>
-                                        <li class="effectFade fadeUp">Framer Development</li>
+                                        <li class="text-white-64">Technologies</li>
+                                        <li class="effectFade fadeUp">LangChain · Gemini API · Next.js</li>
                                     </ul>
-                                    <h5 class="letter-space--2">
-                                        2025
-                                    </h5>
+                                    <h5 class="letter-space--2">2026</h5>
                                 </div>
                             </div>
                         </a>
                     </div>
+                    <!-- Project 3 -->
                     <div class="element">
                         <a href="#" class="wg-work">
                             <div class="work-image">
-                                <img loading="lazy" width="1296" height="648" src="assets/images/section/work-6.jpg" alt="Image">
+                                <img loading="lazy" width="1296" height="648" src="assets/images/projects/smart_ambulance.jpg" alt="Smart Ambulance System">
                             </div>
                             <div class="work-content">
                                 <div class="work_top">
-                                    <h5 class="letter-space--2">Brandon_</h5>
+                                    <h5 class="letter-space--2">Smart-Ambulance_</h5>
                                     <ul class="tf-list vertical text-end">
-                                        <li class="text-white-64">Industry</li>
-                                        <li class="effectFade fadeUp">Portfolio</li>
-                                        <li class="effectFade fadeUp">Photography</li>
+                                        <li class="text-white-64">Discipline</li>
+                                        <li class="effectFade fadeUp">IoT Telemetry</li>
+                                        <li class="effectFade fadeUp">Hospital Logistics</li>
                                     </ul>
                                 </div>
                                 <div class="work_bottom">
                                     <ul class="tf-list vertical">
-                                        <li class="text-white-64">Services</li>
-                                        <li class="effectFade fadeUp">AI & Machine Learning</li>
-                                        <li class="effectFade fadeUp">Visual Identity</li>
-                                        <li class="effectFade fadeUp">Framer Development</li>
+                                        <li class="text-white-64">Technologies</li>
+                                        <li class="effectFade fadeUp">GPS · WebSockets · Python</li>
                                     </ul>
-                                    <h5 class="letter-space--2">
-                                        2025
-                                    </h5>
+                                    <h5 class="letter-space--2">2026</h5>
                                 </div>
                             </div>
                         </a>
                     </div>
-                </div>
+                    <!-- Project 4 -->
+                    <div class="element">
+                        <a href="#" class="wg-work">
+                            <div class="work-image">
+                                <img loading="lazy" width="1296" height="648" src="assets/images/projects/mindmantra.jpg" alt="MindMantra Platform">
+                            </div>
+                            <div class="work-content">
+                                <div class="work_top">
+                                    <h5 class="letter-space--2">MindMantra_</h5>
+                                    <ul class="tf-list vertical text-end">
+                                        <li class="text-white-64">Discipline</li>
+                                        <li class="effectFade fadeUp">HealthTech</li>
+                                        <li class="effectFade fadeUp">Patient Analytics</li>
+                                    </ul>
+                                </div>
+                                <div class="work_bottom">
+                                    <ul class="tf-list vertical">
+                                        <li class="text-white-64">Technologies</li>
+                                        <li class="effectFade fadeUp">React · Python REST · PostgreSQL</li>
+                                    </ul>
+                                    <h5 class="letter-space--2">2026</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="element">
+                        <a href="#" class="wg-work">
+                            <div class="work-image">
+                                <img loading="lazy" width="1296" height="648" src="assets/images/projects/face_detection.jpg" alt="Facial Recognition System">
+                            </div>
+                            <div class="work-content">
+                                <div class="work_top">
+                                    <h5 class="letter-space--2">Vision-AI_</h5>
+                                    <ul class="tf-list vertical text-end">
+                                        <li class="text-white-64">Discipline</li>
+                                        <li class="effectFade fadeUp">Computer Vision</li>
+                                        <li class="effectFade fadeUp">Edge Biometrics</li>
+                                    </ul>
+                                </div>
+                                <div class="work_bottom">
+                                    <ul class="tf-list vertical">
+                                        <li class="text-white-64">Technologies</li>
+                                        <li class="effectFade fadeUp">OpenCV · Python · PyTorch</li>
+                                    </ul>
+                                    <h5 class="letter-space--2">2026</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="element">
+                        <a href="#" class="wg-work">
+                            <div class="work-image">
+                                <img loading="lazy" width="1296" height="648" src="assets/images/projects/seekho_app.jpg" alt="Seekho AI Video Production">
+                            </div>
+                            <div class="work-content">
+                                <div class="work_top">
+                                    <h5 class="letter-space--2">Seekho-Avatar_</h5>
+                                    <ul class="tf-list vertical text-end">
+                                        <li class="text-white-64">Discipline</li>
+                                        <li class="effectFade fadeUp">AI Avatars</li>
+                                        <li class="effectFade fadeUp">Audio-Visual Sync</li>
+                                    </ul>
+                                </div>
+                                <div class="work_bottom">
+                                    <ul class="tf-list vertical">
+                                        <li class="text-white-64">Technologies</li>
+                                        <li class="effectFade fadeUp">Premiere Pro · After Effects · AI</li>
+                                    </ul>
+                                    <h5 class="letter-space--2">2026</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>                </div>
                 <div class="d-flex justify-content-center">
                     <a href="#contactScroll" class="tf-btn style-2">
                         + YOUR PROJECT
@@ -385,78 +460,138 @@
         <!-- Service -->
         <section class="section-service-v2 flat-spacing" id="serviceScroll">
             <div class="container">
+                <div class="s-header mb-4">
+                    <h2 class="text-display-2 fw-semibold text-white">Engineering Services & Capabilities</h2>
+                </div>
                 <div class="br-line d-flex"></div>
                 <div class="service-accordion-main" id="service-accordion-main">
+                    <!-- 1 -->
                     <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
-                        <div class="accordion-action" data-bs-target="#service-1" role="button" data-bs-toggle="collapse" aria-controls="service-1"
-                            aria-expanded="true">
-                            <h5 class="text-display-1 letter-space--3">Branding</h5>
+                        <div class="accordion-action" data-bs-target="#service-1" role="button" data-bs-toggle="collapse" aria-controls="service-1" aria-expanded="true">
+                            <h5 class="text-display-1 letter-space--3">Full-Stack Web Engineering</h5>
                         </div>
                         <div id="service-1" class="collapse show" data-bs-parent="#service-accordion-main">
                             <div class="accordion-content">
                                 <div class="image-left">
-                                    <img width="860" height="373" src="assets/images/section/service-4.jpg" alt="Image">
+                                    <img width="860" height="373" src="assets/images/section/service-1.jpg" alt="Full Stack">
                                 </div>
                                 <div class="content-right">
-                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">
-                                        01
-                                    </p>
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">01</p>
                                     <ul class="tf-list vertical gap-12 text-body-1">
-                                        <li><span class="text-primary">//</span> Brand Strategy</li>
-                                        <li><span class="text-primary">//</span> Visual Identity Design</li>
-                                        <li><span class="text-primary">//</span> Logo & Typography</li>
-                                        <li><span class="text-primary">//</span> Color Palette Creation</li>
-                                        <li><span class="text-primary">//</span> Brand Guidelines</li>
+                                        <li><span class="text-primary">//</span> React & Next.js High-Performance Frontends</li>
+                                        <li><span class="text-primary">//</span> FastAPI & Node.js Microservice APIs</li>
+                                        <li><span class="text-primary">//</span> PostgreSQL & MongoDB Database Schemas</li>
+                                        <li><span class="text-primary">//</span> Docker CI/CD & Production Cloud Deployment</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- 2 -->
                     <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
-                        <div class="accordion-action collapsed" data-bs-target="#service-2" role="button" data-bs-toggle="collapse"
-                            aria-controls="service-2" aria-expanded="true">
-                            <h5 class="text-display-1 letter-space--3">Web Design</h5>
+                        <div class="accordion-action collapsed" data-bs-target="#service-2" role="button" data-bs-toggle="collapse" aria-controls="service-2" aria-expanded="false">
+                            <h5 class="text-display-1 letter-space--3">AI, RAG & Multimodal LLMs</h5>
                         </div>
                         <div id="service-2" class="collapse" data-bs-parent="#service-accordion-main">
                             <div class="accordion-content">
                                 <div class="image-left">
-                                    <img width="860" height="373" src="assets/images/section/service-5.jpg" alt="Image">
+                                    <img width="860" height="373" src="assets/images/section/service-2.jpg" alt="AI Systems">
                                 </div>
                                 <div class="content-right">
-                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">
-                                        02
-                                    </p>
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">02</p>
                                     <ul class="tf-list vertical gap-12 text-body-1">
-                                        <li><span class="text-primary">//</span> Brand Strategy</li>
-                                        <li><span class="text-primary">//</span> Visual Identity Design</li>
-                                        <li><span class="text-primary">//</span> Logo & Typography</li>
-                                        <li><span class="text-primary">//</span> Color Palette Creation</li>
-                                        <li><span class="text-primary">//</span> Brand Guidelines</li>
+                                        <li><span class="text-primary">//</span> LangChain & LlamaIndex RAG Pipelines</li>
+                                        <li><span class="text-primary">//</span> Vector DBs & Semantic Embedding Search</li>
+                                        <li><span class="text-primary">//</span> Gemini & OpenAI Multi-Modal Integrations</li>
+                                        <li><span class="text-primary">//</span> Context-Aware Explainable AI Transparency</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- 3 -->
                     <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
-                        <div class="accordion-action collapsed" data-bs-target="#service-3" role="button" data-bs-toggle="collapse"
-                            aria-controls="service-3" aria-expanded="true">
-                            <h5 class="text-display-1 letter-space--3">No-Code Sites</h5>
+                        <div class="accordion-action collapsed" data-bs-target="#service-3" role="button" data-bs-toggle="collapse" aria-controls="service-3" aria-expanded="false">
+                            <h5 class="text-display-1 letter-space--3">Computer Vision & Edge Biometrics</h5>
                         </div>
                         <div id="service-3" class="collapse" data-bs-parent="#service-accordion-main">
                             <div class="accordion-content">
                                 <div class="image-left">
-                                    <img width="860" height="373" src="assets/images/section/service-6.jpg" alt="Image">
+                                    <img width="860" height="373" src="assets/images/section/service-3.jpg" alt="Computer Vision">
                                 </div>
                                 <div class="content-right">
-                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">
-                                        03
-                                    </p>
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">03</p>
                                     <ul class="tf-list vertical gap-12 text-body-1">
-                                        <li><span class="text-primary">//</span> Brand Strategy</li>
-                                        <li><span class="text-primary">//</span> Visual Identity Design</li>
-                                        <li><span class="text-primary">//</span> Logo & Typography</li>
-                                        <li><span class="text-primary">//</span> Color Palette Creation</li>
-                                        <li><span class="text-primary">//</span> Brand Guidelines</li>
+                                        <li><span class="text-primary">//</span> Real-Time Facial Recognition & Biometrics</li>
+                                        <li><span class="text-primary">//</span> OpenCV Live Camera Video Streaming</li>
+                                        <li><span class="text-primary">//</span> Object Detection & Spatial Tracking</li>
+                                        <li><span class="text-primary">//</span> Edge Model Quantization & Inference</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#service-4" role="button" data-bs-toggle="collapse" aria-controls="service-4" aria-expanded="false">
+                            <h5 class="text-display-1 letter-space--3">HealthTech & Wellness Platforms</h5>
+                        </div>
+                        <div id="service-4" class="collapse" data-bs-parent="#service-accordion-main">
+                            <div class="accordion-content">
+                                <div class="image-left">
+                                    <img width="860" height="373" src="assets/images/section/service-4.jpg" alt="HealthTech">
+                                </div>
+                                <div class="content-right">
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">04</p>
+                                    <ul class="tf-list vertical gap-12 text-body-1">
+                                        <li><span class="text-primary">//</span> MindMantra Patient Dashboard Architecture</li>
+                                        <li><span class="text-primary">//</span> Encrypted Data & HIPAA Security Design</li>
+                                        <li><span class="text-primary">//</span> Mood Trends & Behavioral Analytics</li>
+                                        <li><span class="text-primary">//</span> Secure Token-Based User Authentication</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 5 -->
+                    <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#service-5" role="button" data-bs-toggle="collapse" aria-controls="service-5" aria-expanded="false">
+                            <h5 class="text-display-1 letter-space--3">IoT & Emergency Dispatch Systems</h5>
+                        </div>
+                        <div id="service-5" class="collapse" data-bs-parent="#service-accordion-main">
+                            <div class="accordion-content">
+                                <div class="image-left">
+                                    <img width="860" height="373" src="assets/images/section/service-5.jpg" alt="IoT Dispatch">
+                                </div>
+                                <div class="content-right">
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">05</p>
+                                    <ul class="tf-list vertical gap-12 text-body-1">
+                                        <li><span class="text-primary">//</span> GPS Real-Time Fleet Telemetry</li>
+                                        <li><span class="text-primary">//</span> Hospital Bed & ICU Live Status Allocation</li>
+                                        <li><span class="text-primary">//</span> WebSocket Event-Driven Streaming</li>
+                                        <li><span class="text-primary">//</span> Dynamic Geofencing & Route Optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 6 -->
+                    <div class="service-accordion_item effectFade fadeUp no-div" role="presentation">
+                        <div class="accordion-action collapsed" data-bs-target="#service-6" role="button" data-bs-toggle="collapse" aria-controls="service-6" aria-expanded="false">
+                            <h5 class="text-display-1 letter-space--3">AI Avatar & Creative Video Production</h5>
+                        </div>
+                        <div id="service-6" class="collapse" data-bs-parent="#service-accordion-main">
+                            <div class="accordion-content">
+                                <div class="image-left">
+                                    <img width="860" height="373" src="assets/images/section/service-6.jpg" alt="Creative Video">
+                                </div>
+                                <div class="content-right">
+                                    <p class="number-order text-display-1 fw-medium letter-space--3 text-white-32">06</p>
+                                    <ul class="tf-list vertical gap-12 text-body-1">
+                                        <li><span class="text-primary">//</span> AI-Driven Video Avatar Generation</li>
+                                        <li><span class="text-primary">//</span> Seekho App High-Retention Short-Form Media</li>
+                                        <li><span class="text-primary">//</span> Precision Audio Synchronization & Sound FX</li>
+                                        <li><span class="text-primary">//</span> Adobe Premiere Pro & After Effects Workflows</li>
                                     </ul>
                                 </div>
                             </div>
@@ -466,6 +601,50 @@
             </div>
         </section>
         <!-- /Service -->
+        <!-- ============================================================ -->
+        <!-- THREEUI COMPONENT 1: BestsellersBookShowcase (PROJECTS & SKILLS) -->
+        <!-- ============================================================ -->
+        <section class="section-book-showcase flat-spacing" id="projectsShowcaseScroll" style="background: #080a09;">
+            <div class="container mb-4">
+                <div class="d-flex justify-content-between align-items-end flex-wrap gap-3">
+                    <div>
+                        <p class="text-caption text-primary mb-1">// THREEUI · BESTSELLERS BOOK SHOWCASE</p>
+                        <h2 class="text-display-2 fw-semibold text-white">3D Project Library & Architecture</h2>
+                    </div>
+                    <div class="text-white-64 max-w-450" style="font-size:14px;line-height:1.6;">
+                        Interactive 3D book bindings showcasing core project architectures. Hover and click books to inspect technical implementation notes.
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="threeui-showcase-frame" style="height: 600px;">
+                    <iframe src="landing-pages/bestsellers-book-showcase.html" style="width:100%;height:100%;border:0;display:block;" title="ThreeUI BestsellersBookShowcase" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- THREEUI COMPONENT 2: Gallery (CYLINDRICAL EDUCATION RIBBON) -->
+        <!-- ============================================================ -->
+        <section class="section-gallery-education flat-spacing" id="educationScroll">
+            <div class="container mb-4">
+                <div class="d-flex justify-content-between align-items-end flex-wrap gap-3">
+                    <div>
+                        <p class="text-caption text-primary mb-1">// THREEUI · CYLINDRICAL ORBITAL RIBBON</p>
+                        <h2 class="text-display-2 fw-semibold text-white">Academic Distinction & Foundation</h2>
+                    </div>
+                    <p class="text-white-64 max-w-450" style="font-size:14px;line-height:1.6;">
+                        Curved orbital panels rotating on a vertical Three.js cylinder, highlighting Naman's formal education in Artificial Intelligence, Machine Learning, and senior secondary leadership honors.
+                    </p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="threeui-showcase-frame" style="height: 540px;">
+                    <iframe src="landing-pages/gallery-education.html" style="width:100%;height:100%;border:0;display:block;" title="ThreeUI Gallery" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
         <!-- Brand -->
         <div class="section-brand flat-spacing bg-surface">
             <div class="container">
