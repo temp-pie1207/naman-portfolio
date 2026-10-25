@@ -1539,7 +1539,8 @@ header.header-sticky {
 .nav-menu-main {
   display: flex;
   align-items: center;
-  gap: 21px;
+  gap: 14px;
+  flex-wrap: nowrap;
 }
 
 .box-nav-icon {
