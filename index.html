@@ -42,36 +42,35 @@
     </button>
     <!-- /Scroll Top -->
 
-    <!-- Preload -->
-    <div class="preloader overflow-hidden">
-        <div class="site-name"><span>NAMAN // AI</span></div>
-        <div class="preloader-gutters">
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-            <div class="bar">
-                <div class="inner-bar"></div>
-            </div>
-        </div>
+    <!-- ThreeUI Uplink Boot Preloader -->
+    <div id="uplink-boot-preloader" style="position:fixed;inset:0;z-index:9999999;background:#030806;transition:opacity 0.75s cubic-bezier(0.16,1,0.3,1),visibility 0.75s;overflow:hidden;">
+        <iframe id="uplink-frame" src="landing-pages/uplink-loader.html?mode=boot" style="width:100%;height:100%;border:0;display:block;" title="SYS.LINK Boot Sequence"></iframe>
+        <button id="skip-boot-btn" onclick="dismissBootPreloader()" style="position:absolute;top:20px;right:20px;background:rgba(7,37,26,0.7);border:1px solid rgba(47,224,125,0.4);color:#2fe07d;font-family:'Geist Mono',monospace,sans-serif;font-size:11px;letter-spacing:1.5px;padding:8px 16px;border-radius:4px;cursor:pointer;z-index:10;transition:all 0.2s;" onmouseover="this.style.background='rgba(47,224,125,0.25)'" onmouseout="this.style.background='rgba(7,37,26,0.7)'">
+            SKIP INTRO ✕
+        </button>
     </div>
+    <!-- Preload fallback -->
+    <div class="preloader overflow-hidden" style="display:none;">
+        <div class="site-name"><span>NAMAN</span></div>
+    </div>
+    <script>
+    function dismissBootPreloader() {
+        const p = document.getElementById('uplink-boot-preloader');
+        if (p && !p.classList.contains('dismissed')) {
+            p.classList.add('dismissed');
+            p.style.opacity = '0';
+            p.style.pointerEvents = 'none';
+            setTimeout(function() { p.remove(); }, 800);
+        }
+    }
+    window.addEventListener('message', function(e) {
+        if (e.data && e.data.type === 'uplink-complete') {
+            setTimeout(dismissBootPreloader, 350);
+        }
+    });
+    // Fallback safety dismissal after 4.8s
+    setTimeout(dismissBootPreloader, 4800);
+    </script>
     <!-- /Preload -->
 
     <main id="wrapper">
@@ -187,11 +186,11 @@
             <div class="container mt-5 pt-2">
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb-4 mb-lg-0">
-                        <!-- THREEUI COMPONENT: DarkSoulsHoloCard (variant: cindermane) -->
-                        <div class="holo-card-preview-wrap">
-                            <iframe src="landing-pages/dark-souls-holo-card-cindermane.html" style="width:100%;height:100%;border:0;" title="ThreeUI DarkSoulsHoloCard — Cindermane"></iframe>
-                            <div style="position:absolute;bottom:14px;left:14px;background:rgba(5,4,4,0.85);backdrop-filter:blur(10px);border:1px solid rgba(255,216,160,0.25);padding:6px 14px;border-radius:999px;font-size:11px;font-family:monospace;letter-spacing:1.5px;color:#ffd8a0;pointer-events:none;">
-                                ✦ THREE.JS CINDERMANE HOLO CARD · DRAG TO ROTATE
+                        <!-- THREEUI COMPONENT: DarkSoulsHoloCard (variant: cindermane) - Naman Achievement Edition -->
+                        <div class="holo-card-preview-wrap" style="height: 650px;">
+                            <iframe src="landing-pages/dark-souls-holo-card-cindermane.html" style="width:100%;height:100%;border:0;display:block;" title="ThreeUI DarkSoulsHoloCard — Naman Achievement Edition"></iframe>
+                            <div style="position:absolute;bottom:14px;left:14px;background:rgba(5,4,4,0.88);backdrop-filter:blur(10px);border:1px solid rgba(255,216,160,0.3);padding:7px 16px;border-radius:999px;font-size:11px;font-family:monospace;letter-spacing:1.5px;color:#ffd8a0;pointer-events:none;box-shadow:0 4px 20px rgba(0,0,0,0.8);">
+                                ✦ THREE.JS HOLOGRAPHIC ACHIEVEMENT CARD · DRAG TO ROTATE
                             </div>
                         </div>
                     </div>
@@ -202,6 +201,32 @@
                             <p class="text-white-64 mb-4" style="line-height:1.75;">
                                 Motivated Artificial Intelligence & Machine Learning student at Dronacharya College of Engineering. Experienced in building responsive full-stack applications with React, Node.js, and Python, specializing in LLM integrations, Retrieval-Augmented Generation, and real-time computer vision algorithms.
                             </p>
+                            <!-- Naman Key Achievements -->
+                            <div class="mb-4 p-3" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span style="color:#ffd8a0;font-size:14px;">🏆</span>
+                                    <span style="font-size:13px;font-weight:700;letter-spacing:1px;color:#fff;text-transform:uppercase;">Key Achievements & Distinctions</span>
+                                </div>
+                                <ul style="list-style:none;padding:0;margin:0;font-size:12.5px;color:rgba(255,255,255,0.75);line-height:1.7;">
+                                    <li class="d-flex align-items-start gap-2 mb-1">
+                                        <span style="color:#07c42c;font-weight:bold;">✓</span>
+                                        <span><strong style="color:#fff;">1st Place AI Hackathon Winner</strong> · Arcadia Tech / 4Slayers Scam DNA Engine</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2 mb-1">
+                                        <span style="color:#07c42c;font-weight:bold;">✓</span>
+                                        <span><strong style="color:#fff;">150+ LeetCode Algorithms Solved</strong> · Competitive Programming & Data Structures</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2 mb-1">
+                                        <span style="color:#07c42c;font-weight:bold;">✓</span>
+                                        <span><strong style="color:#fff;">B.Tech AIML (Honors)</strong> · Dronacharya College of Eng. · 89% Senior Secondary</span>
+                                    </li>
+                                    <li class="d-flex align-items-start gap-2">
+                                        <span style="color:#07c42c;font-weight:bold;">✓</span>
+                                        <span><strong style="color:#fff;">157 Industry Awards & Accolades</strong> · 6+ Production Web & AI Systems</span>
+                                    </li>
+                                </ul>
+                            </div>
+
                             <div class="d-flex flex-wrap gap-2 mb-4">
                                 <span class="badge" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#07c42c;padding:7px 12px;border-radius:6px;font-family:monospace;font-size:12px;">React & Next.js</span>
                                 <span class="badge" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#07c42c;padding:7px 12px;border-radius:6px;font-family:monospace;font-size:12px;">Python & FastAPI</span>

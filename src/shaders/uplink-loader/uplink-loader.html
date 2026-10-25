@@ -286,7 +286,10 @@
     [0.40,53],[0.475,54],[0.545,68],[0.60,69],[0.665,81],[0.735,82],
     [0.80,92],[0.855,93],[0.925,99],[0.985,99.4],[1.0,100]
   ];
-  const RUN = 8600, HOLD = 1600, BLANK = 420, LOOP = RUN + HOLD + BLANK;
+  const params = new URLSearchParams(location.search);
+  const isBoot = params.get('mode') === 'boot';
+  const RUN = isBoot ? 3200 : 8600, HOLD = isBoot ? 500 : 1600, BLANK = 420, LOOP = RUN + HOLD + BLANK;
+  let notified = false;
   const easeOut = x => 1 - Math.pow(1 - x, 2.1);
   const valueAt = u => {
     if (u >= 1) return 100;
@@ -298,11 +301,11 @@
   };
 
   const PHASES = [
-    [0,  'INITIALIZING CORE SYSTEMS'],
+    [0,  'INITIALIZING NAMAN SYSTEMS'],
     [24, 'ESTABLISHING SECURE UPLINK'],
-    [52, 'SYNCHRONIZING NODE ARRAY'],
-    [78, 'DECRYPTING PAYLOAD STREAM'],
-    [100,'UPLINK ESTABLISHED']
+    [52, 'SYNCHRONIZING AI ARCHITECTURE'],
+    [78, 'DECRYPTING PORTFOLIO PAYLOAD'],
+    [100,'UPLINK ESTABLISHED · WELCOME']
   ];
   const phaseFor = p => { let t = PHASES[0][1]; for (const [k,v] of PHASES) if (p >= k) t = v; return t; };
 
@@ -334,6 +337,10 @@
     if (FREEZE !== null){ pct = +FREEZE; visible = true; }
 
     const shown = Math.round(pct);
+    if (shown >= 100 && !notified){
+      notified = true;
+      try { window.parent.postMessage({ type: 'uplink-complete' }, '*'); } catch(e){}
+    }
     if (shown !== lastPct){
       num.textContent = String(shown);
       lastPct = shown;
