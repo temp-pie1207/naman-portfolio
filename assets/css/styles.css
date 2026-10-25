@@ -4459,7 +4459,9 @@ button.animate-btn::after,
   z-index: 1;
 }
 .section-hero-v2 .image-wrap .image-child {
-  opacity: 0.32;
+  opacity: 1 !important;
+  z-index: 2 !important;
+  pointer-events: none;
   position: absolute;
   top: 50%;
   left: 50%;
